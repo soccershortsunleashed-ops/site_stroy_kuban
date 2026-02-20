@@ -1,0 +1,10 @@
+﻿# Local tooling
+.qoder/
+superpowers/
+
+# Temporary exports
+/tmp-*.html
+/tmp-*.png
+
+# Runtime logs
+/web/dev-*.log
