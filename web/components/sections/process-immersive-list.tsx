@@ -17,6 +17,15 @@ type ProcessImmersiveListProps = {
   activeIndex?: number
 }
 
+const processStepImages: Partial<Record<StepItem["title"], string>> = {
+  "Цели и видение": "/process/process-goals-vision.jpeg",
+  "Концепция и бюджет": "/process/process-concept-budget.jpeg",
+  "Планирование этапов": "/process/process-planning.jpeg",
+  "Подготовка площадки": "/process/process-site-preparation.jpeg",
+  "Реализация": "/process/process-delivery.jpeg",
+  "Передача и эксплуатация": "/process/process-handover-operation.jpeg",
+}
+
 export function ProcessImmersiveList({
   steps = processSteps,
   activeIndex,
@@ -93,7 +102,7 @@ export function ProcessImmersiveList({
 
       <div className="space-y-5">
         {steps.map((step, index) => {
-          const image = projects[index % projects.length]?.image
+          const image = processStepImages[step.title] ?? projects[index % projects.length]?.image
           const isActive = index === currentActiveIndex
 
           return (

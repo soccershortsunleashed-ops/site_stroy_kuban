@@ -137,3 +137,19 @@
       radial-gradient(circle at 90% 90%, rgba(248, 136, 8, 0.1), transparent 35%);
   }
 }
+
+@keyframes logo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@layer utilities {
+  .logo-float {
+    animation: logo-float 3.4s ease-in-out infinite;
+  }
+}

@@ -35,8 +35,7 @@ export const navItems: NavItem[] = [
   { title: "Процесс", href: "/process" },
   { title: "Услуги", href: "/services" },
   { title: "Проекты", href: "/projects" },
-  { title: "Технологии", href: "/technologies" },
-  { title: "Инвесторам", href: "/investors" },
+  { title: "О компании", href: "/about" },
 ]
 
 export const activities = [
@@ -167,44 +166,64 @@ export const services: Service[] = [
 
 export const projects: ProjectItem[] = [
   {
-    slug: "residency-15",
-    title: "Жилой квартал 15",
-    category: "Жилые",
-    image: "/projects/project-04.jpg",
-    location: "Сириус",
-    year: "2025",
-    summary:
-      "Жилой комплекс с акцентом на энергоэффективные фасады и интеграцию общественных пространств.",
-  },
-  {
-    slug: "residency-courtyard",
-    title: "Дворовый жилой комплекс",
-    category: "Жилые",
-    image: "/projects/project-01.jpg",
-    location: "Черноморское побережье",
-    year: "2024",
-    summary:
-      "Среднеэтажная застройка с безопасной дворовой средой и управляемой инженерией.",
-  },
-  {
-    slug: "foundation-engineering",
-    title: "Инженерный контур основания",
-    category: "Ревитализация",
-    image: "/projects/project-02.jpg",
-    location: "Краснодар",
-    year: "2024",
-    summary:
-      "Реконструкция инженерного контура объекта и усиление фундаментной гидроизоляции.",
-  },
-  {
-    slug: "public-hub-event-space",
-    title: "Общественный деловой центр",
+    slug: "fok-sirius-overview",
+    title: "ФОК «Центр художественной гимнастики»",
     category: "Общественные центры",
-    image: "/projects/project-03.jpg",
+    image: "/projects/fok-sirius-01.jpeg",
     location: "Сириус",
-    year: "2025",
+    year: "2022",
     summary:
-      "Многофункциональное пространство для презентаций и деловых мероприятий.",
+      "Новое строительство спортивного комплекса. Выполнены работы по фасадам, гидроизоляции и отделке.",
+  },
+  {
+    slug: "fok-sirius-underground-level",
+    title: "Помещения ниже отметки 0,000",
+    category: "Общественные центры",
+    image: "/projects/fok-sirius-02.jpeg",
+    location: "Сириус",
+    year: "2022",
+    summary:
+      "Реализация подземной части объекта с учетом требований к защите несущих конструкций и долговечности.",
+  },
+  {
+    slug: "fok-sirius-waterproofing",
+    title: "Напыляемая гидроизоляция фасадов",
+    category: "Общественные центры",
+    image: "/projects/fok-sirius-03.jpeg",
+    location: "Сириус",
+    year: "2022",
+    summary:
+      "Работы выполнены в качестве подрядчика с акцентом на герметичность, стойкость и срок службы фасадного контура.",
+  },
+  {
+    slug: "fok-sirius-structural-reinforcement",
+    title: "Инъектирование и наружное армирование",
+    category: "Общественные центры",
+    image: "/projects/fok-sirius-04.jpeg",
+    location: "Сириус",
+    year: "2022",
+    summary:
+      "Усилены несущие монолитные конструкции, выполнены инъекционные работы для повышения надежности объекта.",
+  },
+  {
+    slug: "fok-sirius-finishing",
+    title: "Теплоизоляционная штукатурка и отделка",
+    category: "Общественные центры",
+    image: "/projects/fok-sirius-05.jpeg",
+    location: "Сириус",
+    year: "2022",
+    summary:
+      "Финишные работы по теплоизоляционной штукатурке и отделке выполнены в едином технологическом цикле.",
+  },
+  {
+    slug: "fok-sirius-commissioned",
+    title: "Объект введен в эксплуатацию",
+    category: "Общественные центры",
+    image: "/projects/fok-sirius-06.jpeg",
+    location: "Сириус",
+    year: "2022",
+    summary:
+      "Комплекс введен в эксплуатацию в сентябре 2022 года. Вместимость объекта составляет 1300 человек.",
   },
 ]
 

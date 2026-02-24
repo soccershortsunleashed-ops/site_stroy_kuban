@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 import { brand, navItems } from "@/data/site-content"
@@ -14,6 +15,13 @@ export function SiteFooter() {
           <p className="text-xs uppercase tracking-[0.14em] text-[#8893a8]">
             Качество - наш стандарт
           </p>
+          <Image
+            src="/brand-logo.jpg"
+            alt="Логотип СтройТрест-23"
+            width={84}
+            height={84}
+            className="rounded-sm border border-[#263244]/70 bg-white/95"
+          />
         </div>
         <div>
           <h4 className="mb-3 text-xs uppercase tracking-[0.16em] text-[#8893a8]">

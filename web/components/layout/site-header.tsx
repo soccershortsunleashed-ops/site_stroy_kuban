@@ -3,19 +3,18 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu } from "lucide-react"
-
-import { brand, navItems, services } from "@/data/site-content"
-import { Button } from "@/components/ui/button"
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+  BriefcaseBusiness,
+  CircleUserRound,
+  Building2,
+  Hammer,
+  Home,
+  type LucideIcon,
+  Menu,
+} from "lucide-react"
+
+import { brand, navItems } from "@/data/site-content"
+import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetContent,
@@ -24,10 +23,26 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { cn } from "@/lib/utils"
+import {
+  NavBar,
+  type TubelightNavItem,
+} from "@/components/ui/tubelight-navbar"
+
+const navIconByHref: Record<string, LucideIcon> = {
+  "/": Home,
+  "/process": BriefcaseBusiness,
+  "/services": Hammer,
+  "/projects": Building2,
+  "/about": CircleUserRound,
+}
 
 export function SiteHeader() {
   const pathname = usePathname()
+  const tubelightItems: TubelightNavItem[] = navItems.map((item) => ({
+    name: item.title,
+    url: item.href,
+    icon: navIconByHref[item.href] ?? Home,
+  }))
 
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur">
@@ -36,8 +51,8 @@ export function SiteHeader() {
           <Image
             src="/brand-logo.jpg"
             alt="Логотип СтройТрест-23"
-            width={34}
-            height={34}
+            width={52}
+            height={52}
             className="rounded-sm border border-border/50"
           />
           <div className="hidden min-[420px]:block">
@@ -50,46 +65,11 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <NavigationMenu className="hidden lg:flex">
-          <NavigationMenuList>
-            {navItems.map((item) => (
-              <NavigationMenuItem key={item.href}>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "h-8 bg-transparent px-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground",
-                    pathname === item.href && "bg-accent text-accent-foreground"
-                  )}
-                >
-                  {item.title}
-                </Link>
-              </NavigationMenuItem>
-            ))}
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Направления</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[480px] gap-2 p-3 md:grid-cols-2">
-                  {services.slice(0, 6).map((service) => (
-                    <li key={service.slug}>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          href={`/services/${service.slug}`}
-                          className="rounded-sm border border-border/40 bg-card p-3"
-                        >
-                          <p className="text-sm font-medium">{service.title}</p>
-                          <p className="line-clamp-2 text-xs text-muted-foreground">
-                            {service.short}
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+        <NavBar
+          items={tubelightItems}
+          activeUrl={pathname}
+          className="hidden lg:block"
+        />
 
         <div className="flex items-center gap-2">
           <Button className="hidden md:inline-flex" size="sm">

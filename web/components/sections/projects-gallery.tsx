@@ -25,10 +25,13 @@ import {
 } from "@/components/ui/dialog"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-const categories = ["Все", "Жилые", "Общественные хабы", "Ревитализация"] as const
-type Category = (typeof categories)[number]
+type Category = "Все" | ProjectItem["category"]
 
 export function ProjectsGallery() {
+  const categories = useMemo<Category[]>(
+    () => ["Все", ...Array.from(new Set(projects.map((project) => project.category)))],
+    [],
+  )
   const [activeCategory, setActiveCategory] = useState<Category>("Все")
   const [selected, setSelected] = useState<ProjectItem | null>(null)
   const [activeIndex, setActiveIndex] = useState(0)
