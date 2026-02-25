@@ -162,11 +162,11 @@ export function CardStack<T extends CardStackItem>({
         onKeyDown={onKeyDown}
       >
         <div
-          className="pointer-events-none absolute inset-x-0 top-6 mx-auto h-48 w-[70%] rounded-full bg-black/5 blur-3xl dark:bg-white/5"
+          className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-px w-[74%] bg-border/70"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 mx-auto h-40 w-[76%] rounded-full bg-black/10 blur-3xl dark:bg-black/30"
+          className="pointer-events-none absolute inset-x-0 bottom-6 mx-auto h-px w-[78%] bg-border/70"
           aria-hidden="true"
         />
 
@@ -215,7 +215,7 @@ export function CardStack<T extends CardStackItem>({
                   key={item.id}
                   data-testid="card-stack-card"
                   className={cn(
-                    "group/card absolute bottom-0 overflow-hidden rounded-2xl p-[2px] shadow-xl",
+                    "group/card absolute bottom-0 overflow-hidden rounded-none border border-border/70 p-[2px] shadow-none",
                     "select-none will-change-transform",
                     isActive ? "cursor-grab active:cursor-grabbing" : "cursor-pointer"
                   )}
@@ -252,12 +252,12 @@ export function CardStack<T extends CardStackItem>({
                   <div
                     data-testid="card-stack-hover-border"
                     aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"
+                    className="pointer-events-none absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"
                   >
-                    <div className="absolute -inset-[45%] bg-[conic-gradient(from_120deg_at_50%_50%,#f59e0b,#f97316,#fb923c,#fdba74,#f59e0b)] animate-[spin_2.7s_linear_infinite]" />
+                    <div className="absolute inset-0 border border-primary/70" />
                   </div>
                   <div
-                    className="relative z-10 h-full w-full overflow-hidden rounded-[14px] border-2 border-black/10 bg-black/5 dark:border-white/10"
+                    className="relative z-10 h-full w-full overflow-hidden border border-black/10 bg-background dark:border-white/10"
                     style={{
                       transform: `translateZ(${z}px)`,
                       transformStyle: "preserve-3d",
@@ -286,10 +286,10 @@ export function CardStack<T extends CardStackItem>({
                   key={it.id}
                   onClick={() => setActive(idx)}
                   className={cn(
-                    "h-2 w-2 rounded-full transition",
+                    "h-1.5 w-6 rounded-none border transition-colors",
                     isCurrent
-                      ? "bg-foreground"
-                      : "bg-foreground/30 hover:bg-foreground/50"
+                      ? "border-foreground bg-foreground"
+                      : "border-foreground/30 bg-transparent hover:border-foreground/50"
                   )}
                   aria-label={`Перейти к карточке «${it.title}»`}
                 />

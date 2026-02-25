@@ -69,7 +69,7 @@ export default function AboutPage() {
           <CardContent>
             <dl className="grid gap-3 text-sm sm:grid-cols-2">
               {aboutCompany.requisites.map((item) => (
-                <div key={item.label} className="flex items-start justify-between gap-3 rounded-md border p-3">
+                <div key={item.label} className="flex items-start justify-between gap-3 rounded-none border p-3">
                   <dt className="text-muted-foreground">{item.label}</dt>
                   <dd className="text-right font-medium">{item.value}</dd>
                 </div>

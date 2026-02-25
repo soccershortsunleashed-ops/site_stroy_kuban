@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import Image from "next/image"
 import { useState } from "react"
@@ -30,14 +30,19 @@ export function ProjectsCarousel() {
 
   return (
     <>
-      <section className="space-y-4" data-testid="home-project-card-stack">
-        <h2 className="text-2xl font-semibold">Галерея выполненных объектов</h2>
+      <section className="space-y-6" data-testid="home-project-card-stack">
+        <div className="relative py-2">
+          <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-border/40" />
+          <h2 className="relative mx-auto w-fit bg-background px-6 text-center text-2xl font-semibold uppercase tracking-[0.08em]">
+            Галерея выполненных объектов
+          </h2>
+        </div>
         <div className="mx-auto w-full max-w-6xl">
           <CardStack
             items={galleryItems}
             initialIndex={0}
             autoAdvance
-            intervalMs={2000}
+            intervalMs={3200}
             pauseOnHover={false}
             showDots
             maxVisible={5}
@@ -47,7 +52,11 @@ export function ProjectsCarousel() {
             spreadDeg={44}
             depthPx={120}
             tiltXDeg={10}
-            activeLiftPx={16}
+            activeLiftPx={10}
+            activeScale={1.01}
+            inactiveScale={0.96}
+            springStiffness={180}
+            springDamping={32}
             onCardClick={(item) => setSelectedPreview(item)}
           />
         </div>
@@ -61,7 +70,7 @@ export function ProjectsCarousel() {
           }
         }}
       >
-        <DialogContent className="sm:max-w-5xl">
+        <DialogContent className="rounded-none border-border/70 sm:max-w-5xl">
           {selectedPreview ? (
             <>
               <DialogHeader>
@@ -71,7 +80,7 @@ export function ProjectsCarousel() {
                     "Крупный просмотр карточки проекта."}
                 </DialogDescription>
               </DialogHeader>
-              <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-xl border">
+              <AspectRatio ratio={16 / 9} className="overflow-hidden border border-border/70">
                 {selectedPreview.imageSrc ? (
                   <Image
                     data-testid="home-project-preview-image"
@@ -94,3 +103,4 @@ export function ProjectsCarousel() {
     </>
   )
 }
+

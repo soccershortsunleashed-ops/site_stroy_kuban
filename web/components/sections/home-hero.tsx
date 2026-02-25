@@ -9,11 +9,11 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export function HomeHero() {
   return (
-    <Card className="overflow-hidden border-border/60 bg-card/60">
+    <Card className="overflow-hidden rounded-none border-border/70 bg-card/70">
       <CardContent className="grid gap-8 p-6 md:grid-cols-[1.2fr_1fr] md:p-10">
         <div className="space-y-6">
           <PageReveal>
-            <Badge variant="secondary" className="bg-primary/15 text-primary">
+            <Badge variant="secondary" className="rounded-none border border-primary/30 bg-primary/10 text-primary">
               Инженерная точность
             </Badge>
           </PageReveal>
@@ -39,7 +39,7 @@ export function HomeHero() {
             </div>
           </PageReveal>
         </div>
-        <div className="relative h-[260px] overflow-hidden rounded-xl border border-border/50 md:h-[320px]">
+        <div className="relative h-[260px] overflow-hidden border border-border/70 md:h-[320px]">
           <ParallaxLayer className="h-full w-full" contentClassName="h-full w-full" strength={0.45}>
             <Image
               src="/brand-logo.jpg"

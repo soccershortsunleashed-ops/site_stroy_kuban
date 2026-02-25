@@ -10,7 +10,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function DigitalForeman() {
@@ -42,9 +48,13 @@ export function DigitalForeman() {
   const interiorConcept = useMemo(() => {
     const paceLabel = pace === "Высокий" ? "динамичные сценарии" : "спокойный ритм"
     const focusLabel =
-      focus === "Командная работа" ? "зоны совместной работы и быстрых встреч" : "тихие комнаты концентрации"
+      focus === "Командная работа"
+        ? "зоны совместной работы и быстрых встреч"
+        : "тихие комнаты концентрации"
     const toneLabel =
-      tone === "Теплый" ? "теплая световая температура и натуральные текстуры" : "контрастная световая сцена и нейтральные материалы"
+      tone === "Теплый"
+        ? "теплая световая температура и натуральные текстуры"
+        : "контрастная световая сцена и нейтральные материалы"
     return `Рекомендуем ${paceLabel}: ${focusLabel}, ${toneLabel}.`
   }, [pace, focus, tone])
 
@@ -52,14 +62,14 @@ export function DigitalForeman() {
     <>
       <Button
         onClick={() => setOpen((value) => !value)}
-        className="fixed right-4 bottom-4 z-50 h-12 rounded-full px-5 shadow-lg"
+        className="fixed bottom-4 right-4 z-50 h-12 rounded-none px-5 shadow-lg"
       >
         {open ? <X className="size-4" /> : <MessageSquare className="size-4" />}
         <span className="ml-2">Цифровой прораб</span>
       </Button>
 
       {open ? (
-        <Card className="fixed right-4 bottom-20 z-50 h-[620px] w-[min(92vw,420px)] border-primary/40 shadow-2xl">
+        <Card className="fixed bottom-20 right-4 z-50 h-[620px] w-[min(92vw,420px)] border-primary/40 shadow-2xl">
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-base">
               <Bot className="size-4 text-primary" />
@@ -92,8 +102,12 @@ export function DigitalForeman() {
                         <SelectValue placeholder="Инженерное решение" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="Интеллектуальный фасад">Интеллектуальный фасад</SelectItem>
-                        <SelectItem value="Биофильные концепции">Биофильные концепции</SelectItem>
+                        <SelectItem value="Интеллектуальный фасад">
+                          Интеллектуальный фасад
+                        </SelectItem>
+                        <SelectItem value="Биофильные концепции">
+                          Биофильные концепции
+                        </SelectItem>
                       </SelectContent>
                     </Select>
 
@@ -104,13 +118,17 @@ export function DigitalForeman() {
                       placeholder="Площадь объекта, м²"
                     />
 
-                    <div className="rounded-lg border border-border/70 bg-muted/30 p-3">
+                    <div className="rounded-none border border-border/70 bg-muted/30 p-3">
                       <p className="text-sm font-medium">Оценка окупаемости</p>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        Срок окупаемости: <span className="font-medium text-foreground">{roiResult.paybackYears} лет</span>
+                        Срок окупаемости:{" "}
+                        <span className="font-medium text-foreground">
+                          {roiResult.paybackYears} лет
+                        </span>
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        Экономия за 5 лет: <span className="font-medium text-foreground">{roiResult.savings}</span>
+                        Экономия за 5 лет:{" "}
+                        <span className="font-medium text-foreground">{roiResult.savings}</span>
                       </p>
                     </div>
                   </div>
@@ -125,14 +143,14 @@ export function DigitalForeman() {
                     placeholder="Введите номер договора (например ДГ-1042)"
                   />
                   {contractStatus ? (
-                    <div className="space-y-3 rounded-lg border border-border/70 p-3">
+                    <div className="space-y-3 rounded-none border border-border/70 p-3">
                       <Badge variant="secondary">{contractStatus.stage}</Badge>
                       <p className="text-sm text-muted-foreground">
                         Прогноз завершения этапа:{" "}
                         <span className="font-medium text-foreground">{contractStatus.eta}</span>
                       </p>
                       {contractStatus.photo ? (
-                        <div className="relative h-44 overflow-hidden rounded-md">
+                        <div className="relative h-44 overflow-hidden rounded-none">
                           <Image
                             src={contractStatus.photo}
                             alt="Фото со стройплощадки"
@@ -183,7 +201,7 @@ export function DigitalForeman() {
                       </SelectContent>
                     </Select>
 
-                    <div className="rounded-lg border border-border/70 bg-muted/30 p-3">
+                    <div className="rounded-none border border-border/70 bg-muted/30 p-3">
                       <p className="text-sm font-medium">Человекоориентированная концепция</p>
                       <p className="mt-1 text-sm text-muted-foreground">{interiorConcept}</p>
                     </div>

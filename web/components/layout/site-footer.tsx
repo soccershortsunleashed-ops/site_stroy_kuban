@@ -1,4 +1,4 @@
-import Image from "next/image"
+﻿import Image from "next/image"
 import Link from "next/link"
 
 import { brand, navItems } from "@/data/site-content"
@@ -20,7 +20,7 @@ export function SiteFooter() {
             alt="Логотип СтройТрест-23"
             width={84}
             height={84}
-            className="rounded-sm border border-[#263244]/70 bg-white/95"
+            className="rounded-none border border-[#263244]/70 bg-white/95"
           />
         </div>
         <div>
@@ -62,3 +62,5 @@ export function SiteFooter() {
     </footer>
   )
 }
+
+

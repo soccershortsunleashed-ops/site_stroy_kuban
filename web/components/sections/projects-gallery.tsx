@@ -83,7 +83,7 @@ export function ProjectsGallery() {
             <Card
               data-testid="project-card"
               data-active={activeIndex === index ? "true" : "false"}
-              className="cursor-pointer overflow-hidden transition-shadow duration-300 hover:shadow-lg"
+              className="cursor-pointer overflow-hidden rounded-none border-border/70 transition-colors duration-300 hover:border-primary/60 hover:shadow-none"
               onClick={() => {
                 setActiveIndex(index)
                 setSelected(project)
@@ -115,7 +115,9 @@ export function ProjectsGallery() {
                     }}
                     transition={{ duration: prefersReduced ? 0 : 0.2 }}
                   >
-                    <Badge variant="secondary">{project.category}</Badge>
+                    <Badge variant="secondary" className="rounded-none border border-border/70 bg-muted/50">
+                      {project.category}
+                    </Badge>
                   </motion.div>
                 </div>
                 <motion.div
@@ -155,7 +157,7 @@ export function ProjectsGallery() {
       </div>
 
       <Dialog open={Boolean(selected)} onOpenChange={() => setSelected(null)}>
-        <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-3xl">
+        <DialogContent className="max-h-[90vh] overflow-y-auto rounded-none border-border/70 sm:max-w-3xl">
           {selected ? (
             <>
               <DialogHeader>
@@ -164,7 +166,7 @@ export function ProjectsGallery() {
                   {selected.category} · {selected.location} · {selected.year}
                 </DialogDescription>
               </DialogHeader>
-              <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg">
+              <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-none border border-border/70">
                 <Image
                   src={selected.image}
                   alt={selected.title}

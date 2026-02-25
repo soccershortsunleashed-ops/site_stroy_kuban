@@ -88,9 +88,9 @@ export function ProcessReferenceSection() {
           const Icon = info?.icon
 
           return (
-            <Card key={step.index} className="overflow-hidden">
+            <Card key={step.index} className="overflow-hidden rounded-none border-border/70 bg-card/75 shadow-none">
               <CardContent className="grid items-start gap-4 p-0 md:grid-cols-[96px_1fr] xl:grid-cols-[96px_1fr_280px]">
-              <div className="flex h-full items-center justify-center bg-muted/40 py-6 text-3xl font-semibold text-primary md:text-4xl">
+              <div className="flex h-full items-center justify-center border-r border-border/40 bg-gradient-to-b from-muted/55 to-muted/20 py-6 text-3xl font-semibold text-primary md:text-4xl">
                 {step.index}
               </div>
               <div className="space-y-2 p-5 md:p-6">
@@ -99,29 +99,33 @@ export function ProcessReferenceSection() {
               </div>
               {info && Icon ? (
                 <div className="px-5 pb-5 md:px-6 md:pt-1 xl:px-0 xl:pb-0 xl:pr-6 xl:pt-6">
-                  <div className="relative overflow-hidden rounded-2xl border border-white/50 bg-white/35 p-4 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-xl">
-                    <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/35 blur-2xl" />
+                  <div className="relative overflow-hidden border border-border/70 bg-background/78 p-4 shadow-none transition-colors duration-300 hover:bg-background/92 dark:border-slate-500/55 dark:bg-[#0f1622]/90 dark:hover:bg-[#131c2c]/95">
+                    <div
+                      className="absolute bottom-4 right-2 top-4 w-[2px] opacity-70"
+                      style={{ backgroundColor: info.accent }}
+                    />
+                    <div className="absolute inset-x-4 top-3 h-px bg-border/70 dark:bg-slate-300/25" />
                     <div className="relative space-y-3">
                       <div className="flex items-start justify-between gap-3">
                         <div>
-                          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground dark:text-slate-300/90">
                             {info.title}
                           </p>
-                          <p className="mt-1 text-lg font-semibold leading-tight">
+                          <p className="mt-1 text-lg font-semibold leading-tight dark:text-white">
                             {info.metric}
                           </p>
                         </div>
                         <div
-                          className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/60 bg-white/45"
+                          className="mr-8 flex h-8 w-8 items-center justify-center rounded-none border border-white/60 bg-white/45 dark:border-slate-300/55 dark:bg-[#1b2638]"
                           style={{ color: info.accent }}
                         >
-                          <Icon className="size-4" />
+                          <Icon className="size-[18px] [stroke-width:2.25]" />
                         </div>
                       </div>
-                      <p className="text-xs text-muted-foreground">{info.detail}</p>
-                      <div className="h-1.5 rounded-full bg-white/65">
+                      <p className="text-xs text-muted-foreground dark:text-slate-200/95">{info.detail}</p>
+                      <div className="h-1.5 rounded-none bg-white/65 dark:bg-slate-600/55">
                         <div
-                          className="h-full rounded-full"
+                          className="h-full rounded-none"
                           style={{ width: `${info.progress}%`, backgroundColor: info.accent }}
                         />
                       </div>
@@ -130,7 +134,7 @@ export function ProcessReferenceSection() {
                           <Badge
                             key={`${step.index}-${tag}`}
                             variant="secondary"
-                            className="border border-white/60 bg-white/60 px-2 py-0 text-[10px] font-medium text-foreground/80"
+                            className="rounded-none border border-white/60 bg-white/60 px-2 py-0 text-[10px] font-medium text-foreground/90 dark:border-slate-400/55 dark:bg-slate-800/80 dark:text-slate-100"
                           >
                             {tag}
                           </Badge>

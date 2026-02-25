@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useEffect, useRef } from "react"
 import Image from "next/image"
@@ -33,18 +33,7 @@ export function HomeScrollToSecond() {
 
   return (
     <section data-testid="home-scroll-to-second">
-      <ContainerScroll
-        titleComponent={
-          <div className="space-y-2">
-            <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
-              Навигационный переход
-            </p>
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
-              От главного меню ко второму экрану
-            </h2>
-          </div>
-        }
-      >
+      <ContainerScroll compact titleComponent={null}>
         <>
           <video
             ref={videoRef}
@@ -74,4 +63,3 @@ export function HomeScrollToSecond() {
     </section>
   )
 }
-

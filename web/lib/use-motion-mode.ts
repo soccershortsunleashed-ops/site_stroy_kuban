@@ -52,7 +52,8 @@ export function useMotionMode() {
   return {
     mode,
     profile,
-    isReduced: mode !== "full",
+    isReduced: mode === "reduced",
+    isCompact: mode !== "full",
     prefersReduced: mode === "reduced",
     isMobile: mode === "mobile",
   }

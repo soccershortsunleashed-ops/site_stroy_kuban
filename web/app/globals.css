@@ -38,26 +38,28 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  --radius-sm: 0rem;
+  --radius-md: 0rem;
+  --radius-lg: 0rem;
+  --radius-xl: 0rem;
+  --radius-2xl: 0rem;
+  --radius-3xl: 0rem;
+  --radius-4xl: 0rem;
   --color-brand-navy: var(--brand-navy);
   --color-brand-orange: var(--brand-orange);
   --color-brand-concrete: var(--concrete-900);
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0rem;
   --brand-navy: #182038;
   --brand-orange: #f2994a;
   --brand-orange-strong: #f88808;
   --concrete-900: #1f232b;
   --concrete-700: #374151;
   --concrete-300: #d1d5db;
+  --background-glow-start: rgba(242, 153, 74, 0.12);
+  --background-glow-end: rgba(248, 136, 8, 0.1);
 
   --background: #eff1f4;
   --foreground: #121827;
@@ -93,37 +95,39 @@
 }
 
 .dark {
-  --background: #12161e;
+  --background: #090b10;
   --foreground: #f2f4f7;
-  --card: #181d26;
+  --card: #10151d;
   --card-foreground: #f2f4f7;
-  --popover: #181d26;
+  --popover: #10151d;
   --popover-foreground: #f2f4f7;
-  --primary: #f2994a;
-  --primary-foreground: #101621;
-  --secondary: #232a36;
+  --primary: #dc8740;
+  --primary-foreground: #0b1017;
+  --secondary: #161c25;
   --secondary-foreground: #f2f4f7;
-  --muted: #202632;
+  --muted: #141a24;
   --muted-foreground: #b9c0cc;
-  --accent: #202632;
+  --accent: #141a24;
   --accent-foreground: #f2f4f7;
   --destructive: #ff6b6b;
-  --border: #2d3544;
-  --input: #2d3544;
-  --ring: #f2994a;
-  --chart-1: #f2994a;
-  --chart-2: #f8c030;
+  --border: #252f3c;
+  --input: #252f3c;
+  --ring: #dc8740;
+  --chart-1: #dc8740;
+  --chart-2: #8fa4bf;
   --chart-3: #5db8ff;
-  --chart-4: #9b7bff;
-  --chart-5: #ff8d8d;
-  --sidebar: #181d26;
+  --chart-4: #6a809a;
+  --chart-5: #d99f6f;
+  --sidebar: #10151d;
   --sidebar-foreground: #f2f4f7;
-  --sidebar-primary: #f2994a;
-  --sidebar-primary-foreground: #101621;
-  --sidebar-accent: #232a36;
+  --sidebar-primary: #dc8740;
+  --sidebar-primary-foreground: #0b1017;
+  --sidebar-accent: #161c25;
   --sidebar-accent-foreground: #f2f4f7;
-  --sidebar-border: #2d3544;
-  --sidebar-ring: #f2994a;
+  --sidebar-border: #252f3c;
+  --sidebar-ring: #dc8740;
+  --background-glow-start: rgba(220, 135, 64, 0.05);
+  --background-glow-end: rgba(220, 135, 64, 0.03);
 }
 
 @layer base {
@@ -133,8 +137,8 @@
   body {
     @apply bg-background text-foreground;
     background-image:
-      radial-gradient(circle at 10% 5%, rgba(242, 153, 74, 0.12), transparent 30%),
-      radial-gradient(circle at 90% 90%, rgba(248, 136, 8, 0.1), transparent 35%);
+      radial-gradient(circle at 10% 5%, var(--background-glow-start), transparent 30%),
+      radial-gradient(circle at 90% 90%, var(--background-glow-end), transparent 35%);
   }
 }
 
@@ -151,5 +155,65 @@
 @layer utilities {
   .logo-float {
     animation: logo-float 3.4s ease-in-out infinite;
+  }
+
+  .hero-contrast-outline {
+    position: relative;
+  }
+
+  .dark .hero-contrast-outline {
+    color: #f8fbff;
+    text-shadow:
+      0 0 0.35px rgba(220, 135, 64, 0.95),
+      0 0 0.7px rgba(220, 135, 64, 0.35);
+  }
+
+  .home-scene-focus {
+    position: relative;
+    isolation: isolate;
+    overflow: visible;
+  }
+
+  .home-scene-focus::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: inherit;
+    border: 1px solid rgba(242, 153, 74, 0.24);
+    background:
+      linear-gradient(to right, rgba(242, 153, 74, 0.22) 0 130px, transparent 130px) 0 18px / 260px 1px no-repeat,
+      linear-gradient(to right, rgba(90, 100, 117, 0.22) 0 180px, transparent 180px) 18% 42% / 320px 1px no-repeat,
+      linear-gradient(to right, rgba(90, 100, 117, 0.18) 0 100px, transparent 100px) 62% 78% / 170px 1px no-repeat,
+      linear-gradient(to bottom, rgba(242, 153, 74, 0.22) 0 95px, transparent 95px) 18px 12% / 1px 180px no-repeat,
+      linear-gradient(to bottom, rgba(90, 100, 117, 0.2) 0 120px, transparent 120px) 82% 38% / 1px 210px no-repeat;
+  }
+
+  .dark .home-scene-focus::before {
+    border-color: rgba(220, 135, 64, 0.24);
+    background:
+      linear-gradient(to right, rgba(220, 135, 64, 0.28) 0 170px, transparent 170px) 12px 12px / 220px 1px no-repeat,
+      linear-gradient(to right, rgba(143, 164, 191, 0.24) 0 190px, transparent 190px) calc(100% - 240px) 28px / 220px 1px no-repeat,
+      linear-gradient(to right, rgba(143, 164, 191, 0.24) 0 210px, transparent 210px) 24px calc(100% - 20px) / 260px 1px no-repeat,
+      linear-gradient(to right, rgba(220, 135, 64, 0.26) 0 180px, transparent 180px) calc(100% - 220px) calc(100% - 30px) / 210px 1px no-repeat,
+      linear-gradient(to bottom, rgba(220, 135, 64, 0.26) 0 80px, transparent 80px) 16px 14px / 1px 120px no-repeat,
+      linear-gradient(to bottom, rgba(143, 164, 191, 0.22) 0 120px, transparent 120px) calc(100% - 16px) 42px / 1px 160px no-repeat,
+      linear-gradient(to bottom, rgba(143, 164, 191, 0.2) 0 100px, transparent 100px) calc(100% - 38px) calc(100% - 128px) / 1px 130px no-repeat;
+  }
+
+  .dark .home-scene-focus::after {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(to right, rgba(220, 135, 64, 0.32) 0 130px, transparent 130px) top left / 220px 1px no-repeat,
+      linear-gradient(to right, rgba(220, 135, 64, 0.26) 0 110px, transparent 110px) bottom right / 180px 1px no-repeat,
+      linear-gradient(to bottom, rgba(220, 135, 64, 0.28) 0 115px, transparent 115px) top left / 1px 180px no-repeat,
+      linear-gradient(to bottom, rgba(220, 135, 64, 0.24) 0 125px, transparent 125px) bottom right / 1px 200px no-repeat,
+      linear-gradient(to right, rgba(143, 164, 191, 0.24) 0 88px, transparent 88px) 8% calc(100% + 1px) / 150px 1px no-repeat,
+      linear-gradient(to bottom, rgba(143, 164, 191, 0.22) 0 84px, transparent 84px) calc(100% + 1px) 26% / 1px 130px no-repeat;
   }
 }

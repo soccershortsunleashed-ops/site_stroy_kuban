@@ -67,7 +67,7 @@ export function ProjectImageGallery({ images }: ProjectImageGalleryProps) {
     <>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {images.map((image, index) => (
-          <Card key={image.src} className="overflow-hidden">
+          <Card key={image.src} className="overflow-hidden rounded-none border-border/70">
             <button
               type="button"
               className="group block w-full text-left"
@@ -94,7 +94,7 @@ export function ProjectImageGallery({ images }: ProjectImageGalleryProps) {
           if (!isOpen) setSelectedIndex(null)
         }}
       >
-        <DialogContent className="sm:max-w-5xl">
+        <DialogContent className="rounded-none border-border/70 sm:max-w-5xl">
           {currentImage ? (
             <>
               <DialogHeader>
@@ -105,7 +105,7 @@ export function ProjectImageGallery({ images }: ProjectImageGalleryProps) {
                 </DialogDescription>
               </DialogHeader>
               <div className="relative">
-                <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg border">
+                <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-none border border-border/70">
                   <Image
                     src={currentImage.src}
                     alt={currentImage.alt}
@@ -120,7 +120,7 @@ export function ProjectImageGallery({ images }: ProjectImageGalleryProps) {
                       type="button"
                       size="icon-sm"
                       variant="secondary"
-                      className="absolute top-1/2 left-3 -translate-y-1/2"
+                      className="absolute top-1/2 left-3 -translate-y-1/2 rounded-none"
                       onClick={showPrevious}
                       aria-label="Предыдущее фото"
                     >
@@ -130,7 +130,7 @@ export function ProjectImageGallery({ images }: ProjectImageGalleryProps) {
                       type="button"
                       size="icon-sm"
                       variant="secondary"
-                      className="absolute top-1/2 right-3 -translate-y-1/2"
+                      className="absolute top-1/2 right-3 -translate-y-1/2 rounded-none"
                       onClick={showNext}
                       aria-label="Следующее фото"
                     >

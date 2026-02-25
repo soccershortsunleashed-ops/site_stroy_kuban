@@ -21,8 +21,8 @@ export function KpiStrip() {
 
         return (
           <PageReveal key={item.label} delay={index * 0.06}>
-            <Card className="bg-card/70">
-              <CardContent className="p-5">
+            <Card className="h-[170px] rounded-none border-border/70 bg-card/75">
+              <CardContent className="flex h-full flex-col justify-between p-5">
                 <p className="text-2xl font-bold">
                   <CountUp
                     value={counter.value}
@@ -30,7 +30,7 @@ export function KpiStrip() {
                     suffix={counter.suffix}
                   />
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">{item.label}</p>
+                <p className="mt-1 text-sm uppercase tracking-[0.08em] text-muted-foreground">{item.label}</p>
               </CardContent>
             </Card>
           </PageReveal>

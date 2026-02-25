@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import {
   Area,
@@ -74,13 +74,22 @@ export function ProjectStatsChart() {
   return (
     <section className="grid gap-4 lg:grid-cols-2">
       <PageReveal>
-        <Card className="relative overflow-hidden border-border/70 bg-gradient-to-br from-[#f7fafc] via-white to-[#eef3f9] shadow-[0_24px_70px_-50px_rgba(15,23,42,0.7)]">
-          <div className="pointer-events-none absolute -top-12 right-10 h-36 w-36 rounded-full bg-[#f59e0b]/16 blur-3xl" />
+        <Card className="relative overflow-hidden rounded-none border-border/70 bg-gradient-to-br from-[#f7fafc] via-white to-[#eef3f9] shadow-none dark:border-[#c99738]/35 dark:bg-gradient-to-br dark:from-[#0b1018] dark:via-[#0f1724] dark:to-[#121d2d]">
           <CardHeader className="space-y-3">
-            <CardTitle>Динамика строительства</CardTitle>
+            <CardTitle className="dark:text-[#f7f9fe]">Динамика строительства</CardTitle>
             <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary">Изометрические столбцы</Badge>
-              <Badge variant="outline">3D визуализация объема</Badge>
+              <Badge
+                variant="secondary"
+                className="rounded-none border border-border/70 dark:border-[#c99738]/65 dark:bg-[#f3f6fb] dark:text-[#0c1320]"
+              >
+                Изометрические столбцы
+              </Badge>
+              <Badge
+                variant="outline"
+                className="rounded-none border-border/80 dark:border-[#c99738]/75 dark:bg-transparent dark:text-[#edf2fb]"
+              >
+                3D визуализация объема
+              </Badge>
             </div>
           </CardHeader>
           <CardContent>
@@ -96,7 +105,7 @@ export function ProjectStatsChart() {
                   dataKey="quarter"
                   tickLine={false}
                   axisLine={false}
-                  tick={{ fill: "#596172", fontWeight: 500 }}
+                  tick={{ fill: "var(--muted-foreground)", fontWeight: 500 }}
                 />
                 <YAxis hide domain={[0, 54]} />
                 <ChartTooltip content={<ChartTooltipContent />} />
@@ -112,13 +121,22 @@ export function ProjectStatsChart() {
       </PageReveal>
 
       <PageReveal delay={0.1}>
-        <Card className="relative overflow-hidden border-border/70 bg-gradient-to-br from-[#f4f7ff] via-[#f8faff] to-[#eef2ff] shadow-[0_24px_70px_-50px_rgba(30,64,175,0.55)]">
-          <div className="pointer-events-none absolute -top-10 left-8 h-40 w-40 rounded-full bg-[#3b82f6]/14 blur-3xl" />
+        <Card className="relative overflow-hidden rounded-none border-border/70 bg-gradient-to-br from-[#f4f7ff] via-[#f8faff] to-[#eef2ff] shadow-none dark:border-[#c99738]/35 dark:bg-gradient-to-br dark:from-[#0b1018] dark:via-[#0f1724] dark:to-[#121d2d]">
           <CardHeader className="space-y-3">
-            <CardTitle>Цифровая модель и энергоэффективность</CardTitle>
+            <CardTitle className="dark:text-[#f7f9fe]">Цифровая модель и энергоэффективность</CardTitle>
             <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary">Комбинированный слой</Badge>
-              <Badge variant="outline">Glow + аналитика</Badge>
+              <Badge
+                variant="secondary"
+                className="rounded-none border border-border/70 dark:border-[#c99738]/65 dark:bg-[#f3f6fb] dark:text-[#0c1320]"
+              >
+                Комбинированный слой
+              </Badge>
+              <Badge
+                variant="outline"
+                className="rounded-none border-border/80 dark:border-[#c99738]/75 dark:bg-transparent dark:text-[#edf2fb]"
+              >
+                Аналитика
+              </Badge>
             </div>
           </CardHeader>
           <CardContent>
@@ -146,7 +164,7 @@ export function ProjectStatsChart() {
                   dataKey="quarter"
                   tickLine={false}
                   axisLine={false}
-                  tick={{ fill: "#596172", fontWeight: 500 }}
+                  tick={{ fill: "var(--muted-foreground)", fontWeight: 500 }}
                 />
                 <YAxis yAxisId="progress" hide domain={[0, 100]} />
                 <YAxis yAxisId="volume" hide domain={[0, 54]} />

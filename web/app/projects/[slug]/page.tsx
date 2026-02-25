@@ -67,7 +67,7 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
             <CardTitle>Видео проекта</CardTitle>
           </CardHeader>
           <CardContent>
-            <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg border">
+            <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-none border">
               <video
                 src={project.videoSrc}
                 poster={project.videoPoster}
