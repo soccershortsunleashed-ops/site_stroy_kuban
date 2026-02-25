@@ -5,6 +5,9 @@ import { SiteHeader } from "@/components/layout/site-header"
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/",
+  useRouter: () => ({
+    push: vi.fn(),
+  }),
 }))
 
 vi.mock("next/image", () => ({

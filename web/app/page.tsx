@@ -1,7 +1,6 @@
 import { ScrollProgress } from "@/components/animation"
 import { HomeHero } from "@/components/sections/home-hero"
 import { HomeScrollToSecond } from "@/components/sections/home-scroll-to-second"
-import { KeyActivitiesBento } from "@/components/sections/key-activities-bento"
 import { KpiStrip } from "@/components/sections/kpi-strip"
 import { ProcessReferenceSection } from "@/components/sections/process-reference"
 import { ProjectStatsChart } from "@/components/sections/project-stats-chart"
@@ -25,7 +24,6 @@ export default function HomePage() {
         </div>
       </section>
       <ProcessReferenceSection />
-      <KeyActivitiesBento />
       <ProjectStatsChart />
       <ProjectsCarousel />
     </div>

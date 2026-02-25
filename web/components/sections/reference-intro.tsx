@@ -2,14 +2,11 @@ import Image from "next/image"
 
 import { CountUp, PageReveal, ParallaxLayer } from "@/components/animation"
 import { GlowingEffect } from "@/components/ui/glowing-effect"
-import GenerativeMountainScene from "@/components/ui/mountain-scene"
 import { brand } from "@/data/site-content"
 
 export function ReferenceIntro() {
   return (
     <section className="relative flex min-h-[72vh] items-center justify-center overflow-hidden rounded-xl border border-border/60 bg-[#eff1f4] text-[#0b0f18]">
-      <GenerativeMountainScene />
-
       <div className="absolute inset-0 z-[1] opacity-35">
         <div className="absolute top-[8%] left-[14%] h-56 w-56 rotate-45 border-[12px] border-[#dce1e8]" />
         <div className="absolute top-[26%] right-[12%] h-44 w-44 rotate-45 border-[10px] border-[#dce1e8]" />

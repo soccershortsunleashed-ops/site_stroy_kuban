@@ -4,8 +4,8 @@ import Image from "next/image"
 import { useState } from "react"
 
 import { projectCases } from "@/data/project-cases"
-import { CardStack, type CardStackItem } from "@/components/ui/card-stack"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { CardStack, type CardStackItem } from "@/components/ui/card-stack"
 import {
   Dialog,
   DialogContent,
@@ -26,12 +26,20 @@ const galleryItems: CardStackItem[] = projectCases.flatMap((project) =>
 )
 
 export function ProjectsCarousel() {
-  const [selectedPreview, setSelectedPreview] = useState<CardStackItem | null>(null)
+  const [selectedPreview, setSelectedPreview] = useState<CardStackItem | null>(
+    null,
+  )
 
   return (
     <>
-      <section className="space-y-4" data-testid="home-project-card-stack">
-        <h2 className="text-2xl font-semibold">Галерея выполненных объектов</h2>
+      <section className="space-y-6" data-testid="home-project-card-stack">
+        <div className="relative py-2">
+          <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-border/40" />
+          <h2 className="relative mx-auto w-fit bg-background px-6 text-center text-2xl font-semibold uppercase tracking-[0.08em]">
+            Галерея выполненных объектов
+          </h2>
+        </div>
+
         <div className="mx-auto w-full max-w-6xl">
           <CardStack
             items={galleryItems}
