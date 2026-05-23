@@ -51,7 +51,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0;
   --brand-navy: #182038;
   --brand-orange: #f2994a;
   --brand-orange-strong: #f88808;
