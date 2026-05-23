@@ -8,3 +8,26 @@ superpowers/
 
 # Runtime logs
 /web/dev-*.log
+
+# Workspace temp/cache
+.tmp_video/
+tmp/
+tmp_maman_*
+web/.next/
+web/node_modules/
+
+# Local tool environments and binaries
+tools/**/.venv/
+tools/**/venv/
+tools/pyscenedetect-venv/
+tools/SoraWatermarkCleaner/
+tools/pyscenedetect/
+tools/pyscenedetect-src/
+tools/ffmpeg/
+tools/Organetto_Font_unpacked/
+tools/__pycache__/
+
+# Raw source media/work folders (not required for site runtime)
+Без водяного знака/
+Президентский лицей/
+Мыс Адлер/
