@@ -64,11 +64,6 @@ export const activities = [
     description:
       "Обновление коммерческой недвижимости: от реконструкции фасадов до модернизации интерьеров.",
   },
-  {
-    title: "Управление цифровым двойником",
-    description:
-      "Сопровождение жизненного цикла объекта и прогнозная аналитика этапов.",
-  },
 ]
 
 export const services: Service[] = [
@@ -133,21 +128,6 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "digital-twins",
-    title: "Управление цифровым двойником",
-    short: "Прогнозная аналитика жизненного цикла",
-    description:
-      "Визуализация и управление статусом стройки через цифровой двойник и этапные показатели.",
-    tags: ["Цифровой двойник", "Аналитика", "Мониторинг"],
-    timeline: [
-      "Сбор проектных данных",
-      "Сборка цифрового двойника",
-      "Подключение событий наблюдения",
-      "Прогноз сроков и рисков",
-      "Контроль этапов по регламенту",
-    ],
-  },
-  {
     slug: "human-centric",
     title: "Человекоориентированные интерьеры",
     short: "Нейроэргономика и адаптивные пространства",
@@ -169,7 +149,7 @@ export const projects: ProjectItem[] = [
     slug: "fok-sirius-overview",
     title: "ФОК «Центр художественной гимнастики»",
     category: "Общественные центры",
-    image: "/projects/fok-sirius-01.jpeg",
+    image: "/projects/fok-sirius-01.avif",
     location: "Сириус",
     year: "2022",
     summary:
@@ -179,7 +159,7 @@ export const projects: ProjectItem[] = [
     slug: "fok-sirius-underground-level",
     title: "Помещения ниже отметки 0,000",
     category: "Общественные центры",
-    image: "/projects/fok-sirius-02.jpeg",
+    image: "/projects/fok-sirius-02.avif",
     location: "Сириус",
     year: "2022",
     summary:
@@ -189,7 +169,7 @@ export const projects: ProjectItem[] = [
     slug: "fok-sirius-waterproofing",
     title: "Напыляемая гидроизоляция фасадов",
     category: "Общественные центры",
-    image: "/projects/fok-sirius-03.jpeg",
+    image: "/projects/fok-sirius-03.avif",
     location: "Сириус",
     year: "2022",
     summary:
@@ -199,7 +179,7 @@ export const projects: ProjectItem[] = [
     slug: "fok-sirius-structural-reinforcement",
     title: "Инъектирование и наружное армирование",
     category: "Общественные центры",
-    image: "/projects/fok-sirius-04.jpeg",
+    image: "/projects/fok-sirius-04.avif",
     location: "Сириус",
     year: "2022",
     summary:
@@ -209,7 +189,7 @@ export const projects: ProjectItem[] = [
     slug: "fok-sirius-finishing",
     title: "Теплоизоляционная штукатурка и отделка",
     category: "Общественные центры",
-    image: "/projects/fok-sirius-05.jpeg",
+    image: "/projects/fok-sirius-05.avif",
     location: "Сириус",
     year: "2022",
     summary:
@@ -219,7 +199,7 @@ export const projects: ProjectItem[] = [
     slug: "fok-sirius-commissioned",
     title: "Объект введен в эксплуатацию",
     category: "Общественные центры",
-    image: "/projects/fok-sirius-06.jpeg",
+    image: "/projects/fok-sirius-06.avif",
     location: "Сириус",
     year: "2022",
     summary:
@@ -254,17 +234,17 @@ export const contractStatuses: Record<
   "ДГ-1042": {
     stage: "Идет гидроизоляция фундамента",
     eta: "12 дней",
-    photo: "/projects/project-02.jpg",
+    photo: "/projects/project-02.avif",
   },
   "ДГ-2025": {
     stage: "Монтаж фасадного контура",
     eta: "3 недели",
-    photo: "/projects/project-04.jpg",
+    photo: "/projects/project-04.avif",
   },
   "ДГ-3099": {
     stage: "Финальная отделка",
     eta: "9 дней",
-    photo: "/projects/project-03.jpg",
+    photo: "/projects/project-03.avif",
   },
 }
 

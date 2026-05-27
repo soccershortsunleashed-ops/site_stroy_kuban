@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -16,34 +16,56 @@ import {
 } from "@/components/ui/card"
 
 export const metadata: Metadata = {
-  title: "Проекты | СтройТрест-23",
+  title: "Проекты",
   description:
-    "Каталог реализованных проектов СтройТрест-23: карточки объектов с детальными страницами, видео и фотогалереей.",
+    "Каталог реализованных проектов СтройТрест-23: карточки объектов, видео и фотогалереи.",
+  keywords: [
+    "реализованные проекты строительство",
+    "портфолио строительной компании",
+    "объекты СтройТрест-23",
+    "строительные кейсы Краснодарский край",
+  ],
+  alternates: {
+    canonical: "/projects",
+  },
+  openGraph: {
+    title: "Проекты СтройТрест-23",
+    description:
+      "Реализованные проекты: строительство, реконструкция, инженерные решения и видеообзоры объектов.",
+    url: "/projects",
+    type: "website",
+  },
 }
 
 export default function ProjectsPage() {
+  const sortedProjects = [...projectCases].sort((a, b) => Number(b.year) - Number(a.year))
+
   return (
     <div className="space-y-6">
       <PageReveal>
         <div className="space-y-3">
           <h1 className="text-3xl font-semibold">Проекты</h1>
           <p className="max-w-3xl text-muted-foreground">
-            Выберите проект, чтобы открыть отдельную страницу объекта с видео, фотогалереей
-            и ключевой информацией.
+            Выберите проект, чтобы открыть отдельную страницу объекта с видео, фотогалереей и
+            ключевой информацией. В каталоге собраны реализованные кейсы в Краснодаре, Сочи и
+            Сириусе.
           </p>
         </div>
       </PageReveal>
 
       <section className="grid gap-4 md:grid-cols-2">
-        {projectCases.map((project) => (
+        {sortedProjects.map((project, index) => (
           <Card key={project.slug} className="overflow-hidden">
             <AspectRatio ratio={16 / 10} className="relative border-b">
               <Image
                 src={project.previewImage}
                 alt={project.title}
                 fill
+                unoptimized
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 720px"
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "auto"}
               />
             </AspectRatio>
             <CardHeader className="space-y-3">
@@ -63,6 +85,7 @@ export default function ProjectsPage() {
           </Card>
         ))}
       </section>
+
     </div>
   )
 }

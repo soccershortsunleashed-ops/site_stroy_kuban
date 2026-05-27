@@ -1,30 +1,77 @@
-import { ScrollProgress } from "@/components/animation"
+﻿import type { Metadata } from "next"
+
 import { HomeHero } from "@/components/sections/home-hero"
 import { HomeScrollToSecond } from "@/components/sections/home-scroll-to-second"
 import { KpiStrip } from "@/components/sections/kpi-strip"
 import { ProcessReferenceSection } from "@/components/sections/process-reference"
-import { ProjectStatsChart } from "@/components/sections/project-stats-chart"
 import { ProjectsCarousel } from "@/components/sections/projects-carousel"
 import { ReferenceIntro } from "@/components/sections/reference-intro"
+import { ResponsiveVideo } from "@/components/ui/responsive-video"
+
+export const metadata: Metadata = {
+  title: "СтройТрест-23 | Строительная компания полного цикла в Краснодаре",
+  description:
+    "СтройТрест-23: проектирование, строительство, реконструкция и инженерные работы в Краснодаре, Сириусе и по Краснодарскому краю.",
+  keywords: [
+    "строительная компания Краснодар",
+    "строительство под ключ Краснодарский край",
+    "генподряд Сириус",
+    "реконструкция и инженерные сети",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "СтройТрест-23 | Строительная компания полного цикла",
+    description:
+      "Проектирование, строительство, реконструкция и инженерные решения для жилых и общественных объектов.",
+    url: "/",
+    type: "website",
+  },
+}
 
 export default function HomePage() {
   return (
-    <div className="space-y-10">
-      <ScrollProgress />
-      <section className="relative min-h-[92vh] lg:min-h-[118vh]">
+    <div className="space-y-6 md:space-y-10">
+      <section className="relative min-h-[58vh] md:min-h-[92vh] lg:min-h-[118vh]">
         <div className="lg:sticky lg:top-6">
           <ReferenceIntro />
         </div>
       </section>
       <HomeScrollToSecond />
       <HomeHero />
+      <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden bg-black">
+        <ResponsiveVideo
+          className="h-[46vh] w-full object-cover"
+          poster="/projects/fok-sirius-poster-mobile.avif"
+          sources={[
+            { src: "/projects/fok-sirius-final.webm", type: "video/webm" },
+            { src: "/projects/fok-sirius-final.mp4", type: "video/mp4" },
+          ]}
+        />
+      </section>
       <section className="relative min-h-[38vh] lg:min-h-[55vh]">
         <div className="lg:sticky lg:top-20">
           <KpiStrip />
         </div>
       </section>
       <ProcessReferenceSection />
-      <ProjectStatsChart />
+      <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden bg-black">
+        <ResponsiveVideo
+          className="h-[46vh] w-full object-cover"
+          poster="/projects/presidential-lyceum-sirius/lyceum-01-mobile.avif"
+          sources={[
+            {
+              src: "/projects/presidential-lyceum-sirius/lyceum-final.webm",
+              type: "video/webm",
+            },
+            {
+              src: "/projects/presidential-lyceum-sirius/lyceum-final.mp4",
+              type: "video/mp4",
+            },
+          ]}
+        />
+      </section>
       <ProjectsCarousel />
     </div>
   )

@@ -19,8 +19,8 @@ describe("ProjectImageGallery", () => {
     render(
       <ProjectImageGallery
         images={[
-          { src: "/projects/fok-sirius-01.jpeg", alt: "Фото 1" },
-          { src: "/projects/fok-sirius-02.jpeg", alt: "Фото 2" },
+          { src: "/projects/fok-sirius-01.avif", alt: "Фото 1" },
+          { src: "/projects/fok-sirius-02.avif", alt: "Фото 2" },
         ]}
       />,
     )
@@ -35,9 +35,9 @@ describe("ProjectImageGallery", () => {
     render(
       <ProjectImageGallery
         images={[
-          { src: "/projects/fok-sirius-01.jpeg", alt: "Фото 1" },
-          { src: "/projects/fok-sirius-02.jpeg", alt: "Фото 2" },
-          { src: "/projects/fok-sirius-03.jpeg", alt: "Фото 3" },
+          { src: "/projects/fok-sirius-01.avif", alt: "Фото 1" },
+          { src: "/projects/fok-sirius-02.avif", alt: "Фото 2" },
+          { src: "/projects/fok-sirius-03.avif", alt: "Фото 3" },
         ]}
       />,
     )

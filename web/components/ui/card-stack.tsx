@@ -8,6 +8,7 @@ import {
   type PanInfo,
 } from "framer-motion"
 import { SquareArrowOutUpRight } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 import { cn } from "@/lib/utils"
@@ -266,7 +267,7 @@ export function CardStack<T extends CardStackItem>({
                     {renderCard ? (
                       renderCard(item, { active: isActive })
                     ) : (
-                      <DefaultFanCard item={item} />
+                      <DefaultFanCard item={item} active={isActive} />
                     )}
                   </div>
                 </motion.div>
@@ -313,18 +314,21 @@ export function CardStack<T extends CardStackItem>({
   )
 }
 
-function DefaultFanCard({ item }: { item: CardStackItem; active?: boolean }) {
+function DefaultFanCard({ item, active = false }: { item: CardStackItem; active?: boolean }) {
   return (
     <div className="relative h-full w-full">
       <div className="absolute inset-0">
         {item.imageSrc ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={item.imageSrc}
             alt={item.title}
-            className="h-full w-full object-cover"
+            fill
+            unoptimized
+            sizes="350px"
+            className="object-cover"
             draggable={false}
-            loading="eager"
+            loading={active ? "eager" : "lazy"}
+            fetchPriority={active ? "high" : "low"}
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-secondary text-sm text-muted-foreground">

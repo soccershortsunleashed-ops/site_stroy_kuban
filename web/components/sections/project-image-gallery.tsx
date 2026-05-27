@@ -79,6 +79,7 @@ export function ProjectImageGallery({ images }: ProjectImageGalleryProps) {
                   src={image.src}
                   alt={image.alt}
                   fill
+                  unoptimized
                   className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                 />
@@ -110,6 +111,7 @@ export function ProjectImageGallery({ images }: ProjectImageGalleryProps) {
                     src={currentImage.src}
                     alt={currentImage.alt}
                     fill
+                    unoptimized
                     className="object-contain bg-black/70"
                     sizes="(max-width: 1280px) 100vw, 1200px"
                   />
