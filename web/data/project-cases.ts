@@ -94,7 +94,7 @@ export const projectCases: ProjectCase[] = [
     scope: [
       "Перепланировка помещений",
       "Отделочные работы",
-      "нженерные сети",
+      "Инженерные сети",
       "Благоустройство",
       "Фасадные работы",
       "Размещение номерного фонда на 250 учащихся, в том числе МГН",
@@ -174,7 +174,7 @@ export const projectCases: ProjectCase[] = [
       { label: "Застройщик", value: "ОФ «Талант и Успех»" },
       { label: "Локация", value: "Сириус, ул. Чемпионов, 5А" },
     ],
-    scope: ["Авторский фасад", "Отделка", "нженерные сети"],
+    scope: ["Авторский фасад", "Отделка", "Инженерные сети"],
     gallery: [
       { src: "/projects/cup/cup-01.avif", alt: "ЦУП, вид 1" },
       { src: "/projects/cup/cup-02.avif", alt: "ЦУП, вид 2" },
@@ -190,5 +190,4 @@ export const projectCases: ProjectCase[] = [
 export function getProjectCaseBySlug(slug: string) {
   return projectCases.find((project) => project.slug === slug)
 }
-
 
