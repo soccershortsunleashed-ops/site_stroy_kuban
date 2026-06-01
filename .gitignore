@@ -31,3 +31,20 @@ tools/__pycache__/
 Без водяного знака/
 Президентский лицей/
 Мыс Адлер/
+
+# Local deploy/backup artifacts
+*.tgz
+*.tar.gz
+*_sync.tgz
+web_deploy_*.tgz
+web_deploy*.tar.gz
+site_stroy_kuban_backup_*.tgz
+cup_parts/
+
+# Local diagnostics/temp exports
+tmp_*.html
+tmp_*.png
+tmp_vps_*.html
+tmp_vercel_*.html
+web/audit-*.json
+web/lighthouse-*.json

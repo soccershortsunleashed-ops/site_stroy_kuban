@@ -28,7 +28,7 @@ describe("ProcessImmersiveList", () => {
   it("uses process-specific image for each step title", () => {
     render(<ProcessImmersiveList activeIndex={2} />)
 
-    const image = screen.getByRole("img", { name: "Планирование этапов" })
-    expect(image).toHaveAttribute("src", "/process/process-planning.jpeg")
+    const image = screen.getByRole("img", { name: "Подготовка проекта" })
+    expect(image).toHaveAttribute("src", "/process/process-site-preparation.jpeg")
   })
 })

@@ -21,6 +21,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": 0,
+    },
+  },
   openGraph: {
     title: "СтройТрест-23 | Строительная компания полного цикла",
     description:
@@ -43,10 +52,11 @@ export default function HomePage() {
       <section className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden bg-black">
         <ResponsiveVideo
           className="h-[46vh] w-full object-cover"
-          poster="/projects/fok-sirius-poster-mobile.avif"
+          poster="/projects/fok-sirius-01.avif"
           sources={[
-            { src: "/projects/fok-sirius-final.webm", type: "video/webm" },
-            { src: "/projects/fok-sirius-final.mp4", type: "video/mp4" },
+            { src: "/projects/fok-sirius-final.webm", type: "video/webm; codecs=av01.0.08M.08,opus" },
+            { src: "/projects/fok-sirius-final.mp4", type: "video/mp4; codecs=av01.0.08M.08,mp4a.40.2" },
+            { src: "/projects/fok-sirius-final-h264.mp4", type: "video/mp4; codecs=avc1.640028,mp4a.40.2" },
           ]}
         />
       </section>
@@ -63,11 +73,15 @@ export default function HomePage() {
           sources={[
             {
               src: "/projects/presidential-lyceum-sirius/lyceum-final.webm",
-              type: "video/webm",
+              type: "video/webm; codecs=av01.0.08M.08,opus",
             },
             {
               src: "/projects/presidential-lyceum-sirius/lyceum-final.mp4",
-              type: "video/mp4",
+              type: "video/mp4; codecs=av01.0.08M.08,mp4a.40.2",
+            },
+            {
+              src: "/projects/presidential-lyceum-sirius/lyceum-final-h264.mp4",
+              type: "video/mp4; codecs=avc1.640028,mp4a.40.2",
             },
           ]}
         />

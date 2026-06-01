@@ -35,8 +35,11 @@ export function HomeScrollToSecond() {
           className="h-[46vh] w-full object-cover"
           poster="/projects/mys-adler/mys-adler-poster-title.avif"
           sources={[
-            { src: "/projects/mys-adler/mys-adler-final.webm", type: "video/webm" },
-            { src: "/projects/mys-adler/mys-adler-final.mp4", type: "video/mp4" },
+            { src: "/projects/mys-adler/mys-adler-final.mp4", type: "video/mp4; codecs=av01.0.08M.08,mp4a.40.2" },
+            {
+              src: "/projects/mys-adler/mys-adler-final-h264.mp4",
+              type: "video/mp4; codecs=avc1.640028,mp4a.40.2",
+            },
           ]}
         />
       </section>
@@ -51,8 +54,11 @@ export function HomeScrollToSecond() {
             className="block h-full w-full object-cover object-center"
             poster="/projects/mys-adler/mys-adler-poster-title.avif"
             sources={[
-              { src: "/projects/mys-adler/mys-adler-final.webm", type: "video/webm" },
-              { src: "/projects/mys-adler/mys-adler-final.mp4", type: "video/mp4" },
+              { src: "/projects/mys-adler/mys-adler-final.mp4", type: "video/mp4; codecs=av01.0.08M.08,mp4a.40.2" },
+              {
+                src: "/projects/mys-adler/mys-adler-final-h264.mp4",
+                type: "video/mp4; codecs=avc1.640028,mp4a.40.2",
+              },
             ]}
           />
           <Image

@@ -1,4 +1,4 @@
-export type ProjectCaseFact = {
+﻿export type ProjectCaseFact = {
   label: string
   value: string
 }
@@ -36,9 +36,9 @@ export const projectCases: ProjectCase[] = [
       "Застройщик: ООО «Газпром инвестгазификация».",
       "Выполнено в качестве подрядчика: напыляемая гидроизоляция фасадов, инъектирование и наружное армирование несущих монолитных конструкций, теплоизоляционная штукатурка, отделка.",
     ],
-    previewImage: "/projects/fok-sirius-poster-mobile.avif",
+    previewImage: "/projects/fok-sirius-01.avif",
     videoSrc: "/projects/fok-sirius-final.mp4",
-    videoPoster: "/projects/fok-sirius-poster-mobile.avif",
+    videoPoster: "/projects/fok-sirius-01.avif",
     facts: [
       { label: "Площадь застройки", value: "10 009,00 м²" },
       { label: "Строительный объем, в т.ч.", value: "185 313,00 м³" },
@@ -65,6 +65,7 @@ export const projectCases: ProjectCase[] = [
       { src: "/projects/fok-sirius-04.avif", alt: "ФОК Сириус, армирование конструкций" },
       { src: "/projects/fok-sirius-05.avif", alt: "ФОК Сириус, отделочные работы" },
       { src: "/projects/fok-sirius-06.avif", alt: "ФОК Сириус, завершенный объект" },
+      { src: "/projects/fok-sirius-07.avif", alt: "ФОК Сириус, дополнительный ракурс" },
     ],
   },
   {
@@ -150,6 +151,7 @@ export const projectCases: ProjectCase[] = [
       { src: "/projects/mys-adler/mys-adler-04.avif", alt: "Спортивный парк «Мыс Адлер», вид 4" },
       { src: "/projects/mys-adler/mys-adler-05.avif", alt: "Спортивный парк «Мыс Адлер», вид 5" },
       { src: "/projects/mys-adler/mys-adler-06.avif", alt: "Спортивный парк «Мыс Адлер», вид 6" },
+      { src: "/projects/mys-adler/mys-adler-07.avif", alt: "Спортивный парк «Мыс Адлер», вид 7" },
     ],
   },
   {

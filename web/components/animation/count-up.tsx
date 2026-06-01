@@ -13,6 +13,7 @@ type CountUpProps = {
   suffix?: string
   duration?: number
   reduced?: boolean
+  easing?: "linear" | "cubic"
 }
 
 const easeOutCubic = (progress: number) => 1 - (1 - progress) ** 3
@@ -25,6 +26,7 @@ export function CountUp({
   suffix = "",
   duration,
   reduced,
+  easing = "cubic",
 }: CountUpProps) {
   const { isReduced, profile } = useMotionMode()
   const shouldReduce = reduced ?? isReduced
@@ -49,7 +51,8 @@ export function CountUp({
 
       const elapsed = timestamp - startTimestamp
       const progress = Math.min(1, elapsed / animationDuration)
-      const nextValue = value * easeOutCubic(progress)
+      const easedProgress = easing === "linear" ? progress : easeOutCubic(progress)
+      const nextValue = value * easedProgress
 
       setDisplayValue(nextValue)
 
@@ -65,7 +68,7 @@ export function CountUp({
         window.cancelAnimationFrame(animationFrame)
       }
     }
-  }, [duration, profile.countUpDuration, shouldReduce, value])
+  }, [duration, easing, profile.countUpDuration, shouldReduce, value])
 
   const textValue = useMemo(() => {
     const baseValue = shouldReduce ? value : displayValue

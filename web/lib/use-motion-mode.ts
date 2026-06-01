@@ -21,7 +21,7 @@ function resolveMotionMode(): MotionMode {
 }
 
 export function useMotionMode() {
-  const [mode, setMode] = useState<MotionMode>(resolveMotionMode)
+  const [mode, setMode] = useState<MotionMode>("full")
 
   useEffect(() => {
     if (typeof window === "undefined") {

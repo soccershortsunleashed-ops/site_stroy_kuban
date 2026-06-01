@@ -1,19 +1,13 @@
-"use client"
+﻿"use client"
 
 import Image from "next/image"
 import Link from "next/link"
-import { usePathname, useRouter } from "next/navigation"
-import { Menu } from "lucide-react"
-import { useState } from "react"
+import { usePathname } from "next/navigation"
+import { Menu, Moon, Sun } from "lucide-react"
+import { useEffect, useState } from "react"
 
 import { brand, navItems } from "@/data/site-content"
 import { Button } from "@/components/ui/button"
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
 import {
   Sheet,
   SheetContent,
@@ -22,46 +16,32 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import {
-  InteractiveHoverLinks,
-  type InteractiveLinkItem,
-} from "@/components/ui/interactive-hover-links"
-import { cn } from "@/lib/utils"
-
-const navPreviewByHref: Record<string, string> = {
-  "/": "/projects/fok-sirius-01.jpeg",
-  "/process": "/process/process-goals-vision.jpeg",
-  "/services": "/projects/project-04.jpg",
-  "/projects": "/projects/presidential-lyceum-sirius/lyceum-01.jpeg",
-  "/about": "/brand-logo.jpg",
-}
-
-const navSubheadingByHref: Record<string, string> = {
-  "/": "Главный экран",
-  "/process": "Этапы реализации",
-  "/services": "Структура услуг",
-  "/projects": "Портфолио проектов",
-  "/about": "О компании",
-}
 
 export function SiteHeader() {
   const pathname = usePathname()
-  const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === "undefined") return true
+    const saved = window.localStorage.getItem("stroytrust-theme")
+    return saved ? saved === "dark" : true
+  })
 
-  const interactiveMenuLinks: InteractiveLinkItem[] = navItems.map((item) => ({
-    heading: item.title,
-    subheading: navSubheadingByHref[item.href] ?? brand.subtitle,
-    href: item.href,
-    imgSrc: navPreviewByHref[item.href] ?? "/brand-logo.jpg",
-  }))
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark)
+    window.localStorage.setItem("stroytrust-theme", isDark ? "dark" : "light")
+  }, [isDark])
+
+  const toggleTheme = () => {
+    const nextDark = !isDark
+    setIsDark(nextDark)
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur">
-      <div className="relative mx-auto flex h-18 w-full max-w-7xl items-center justify-start gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex h-18 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/brand-logo.jpg"
+            src="/brand-logo-transparent.png"
             alt="Логотип СтройТрест-23"
             width={52}
             height={52}
@@ -77,53 +57,32 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <NavigationMenu className="absolute left-1/2 hidden -translate-x-1/2 xl:flex">
-          <NavigationMenuList className="rounded-full border border-border/80 bg-background/90 p-1 shadow-[0_12px_28px_-18px_rgba(24,32,56,0.7)] backdrop-blur-xl">
-            {navItems.map((item) => {
-              const isActive =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname === item.href || pathname.startsWith(`${item.href}/`)
-
-              return (
-                <NavigationMenuItem key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "h-9 rounded-full bg-transparent px-4 text-[11px] uppercase tracking-[0.14em]",
-                      "text-muted-foreground hover:text-foreground",
-                      isActive && "bg-accent text-accent-foreground"
-                    )}
-                  >
-                    {item.title}
-                  </Link>
-                </NavigationMenuItem>
-              )
-            })}
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        <div className="hidden items-center gap-2">
-          <Button className="hidden rounded-full md:inline-flex" size="sm">
-            Консультация
+        <div className="flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-10 w-10 rounded-md border border-border/80"
+            onClick={toggleTheme}
+            aria-label="Переключить тему"
+          >
+            {isDark ? <Sun className="size-5" /> : <Moon className="size-5" />}
           </Button>
 
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="outline"
-                className="rounded-full px-3 sm:px-4"
-                size="sm"
+                className="h-10 w-10 rounded-md border border-border/80 p-0"
+                size="icon"
+                aria-label="Открыть меню"
               >
-                <Menu className="size-4" />
-                <span className="ml-2 uppercase tracking-[0.12em]">Разделы</span>
+                <Menu className="size-5" />
               </Button>
             </SheetTrigger>
 
             <SheetContent
               side="right"
-              className="w-[min(98vw,1840px)] max-w-none rounded-none border-l border-border/60 p-0"
+              className="w-[min(92vw,380px)] rounded-none border-l border-border/60 p-0"
             >
               <SheetHeader className="border-b border-border/40 px-6 pb-4 pt-6 sm:px-8">
                 <SheetTitle className="text-xs uppercase tracking-[0.26em] text-muted-foreground">
@@ -134,20 +93,30 @@ export function SiteHeader() {
                 </SheetDescription>
               </SheetHeader>
 
-              <div className="px-6 pb-8 pt-2 sm:px-8">
-                <InteractiveHoverLinks
-                  links={interactiveMenuLinks}
-                  activeHref={pathname}
-                  onNavigate={(href, event) => {
-                    if (href.startsWith("/")) {
-                      event.preventDefault()
-                      setIsMenuOpen(false)
-                      router.push(href)
-                      return
-                    }
-                    setIsMenuOpen(false)
-                  }}
-                />
+              <div className="px-6 pb-8 pt-4 sm:px-8">
+                <nav className="flex flex-col gap-1">
+                  {navItems.map((item) => {
+                    const isActive =
+                      item.href === "/"
+                        ? pathname === "/"
+                        : pathname === item.href || pathname.startsWith(`${item.href}/`)
+
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`rounded-md px-3 py-2 text-sm uppercase tracking-[0.14em] transition-colors ${
+                          isActive
+                            ? "bg-accent text-accent-foreground"
+                            : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                        }`}
+                      >
+                        {item.title}
+                      </Link>
+                    )
+                  })}
+                </nav>
               </div>
             </SheetContent>
           </Sheet>
@@ -156,3 +125,4 @@ export function SiteHeader() {
     </header>
   )
 }
+

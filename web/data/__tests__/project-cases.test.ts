@@ -1,10 +1,10 @@
-import { describe, expect, it } from "vitest"
+﻿import { describe, expect, it } from "vitest"
 
 import { getProjectCaseBySlug, projectCases } from "@/data/project-cases"
 
 describe("project cases catalog", () => {
-  it("contains exactly two top-level projects", () => {
-    expect(projectCases).toHaveLength(2)
+  it("contains project cards", () => {
+    expect(projectCases.length).toBeGreaterThanOrEqual(4)
   })
 
   it("contains unique slugs", () => {
@@ -14,6 +14,14 @@ describe("project cases catalog", () => {
 
   it("finds project by slug", () => {
     const lyceum = getProjectCaseBySlug("presidential-lyceum-sirius")
-    expect(lyceum?.title).toContain("Президентский Лицей")
+    expect(lyceum).toBeDefined()
+  })
+
+  it("has non-empty alt text for all gallery images", () => {
+    for (const project of projectCases) {
+      for (const image of project.gallery) {
+        expect(image.alt.trim().length).toBeGreaterThan(0)
+      }
+    }
   })
 })

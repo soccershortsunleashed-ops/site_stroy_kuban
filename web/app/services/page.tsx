@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 
 import { services } from "@/data/site-content"
@@ -7,9 +7,25 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const metadata: Metadata = {
-  title: "Услуги | СтройТрест-23",
+  title: "Услуги",
   description:
-    "Направления компании СтройТрест-23: строительство полного цикла, цифровое информационное моделирование, ревитализация и человекоориентированные интерьеры.",
+    "Услуги СтройТрест-23: строительство полного цикла, цифровое проектирование, реконструкция и инженерные решения.",
+  keywords: [
+    "услуги строительной компании",
+    "генподряд Краснодар",
+    "реконструкция зданий услуги",
+    "инженерные сети под ключ",
+  ],
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Услуги СтройТрест-23",
+    description:
+      "Строительство полного цикла, цифровое проектирование, реконструкция и инженерные решения.",
+    url: "/services",
+    type: "website",
+  },
 }
 
 export default function ServicesPage() {
@@ -18,8 +34,8 @@ export default function ServicesPage() {
       <div className="space-y-2">
         <h1 className="text-3xl font-semibold">Услуги</h1>
         <p className="max-w-3xl text-muted-foreground">
-          Каждое направление оформлено как отдельная услуга с прозрачным графиком
-          внедрения и инженерными этапами.
+          Каждое направление оформлено как отдельная услуга с прозрачным графиком внедрения и
+          инженерными этапами для объектов в Краснодаре, Сочи и на территории Сириус.
         </p>
       </div>
 
@@ -45,6 +61,7 @@ export default function ServicesPage() {
           </Card>
         ))}
       </div>
+
     </div>
   )
 }

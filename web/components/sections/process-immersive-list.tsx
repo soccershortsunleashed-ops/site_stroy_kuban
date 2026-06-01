@@ -18,12 +18,12 @@ type ProcessImmersiveListProps = {
 }
 
 const processStepImages: Partial<Record<StepItem["title"], string>> = {
-  "Цели и видение": "/process/process-goals-vision.jpeg",
+  "Цели и задачи проекта": "/process/process-goals-vision.jpeg",
   "Концепция и бюджет": "/process/process-concept-budget.jpeg",
-  "Планирование этапов": "/process/process-planning.jpeg",
-  "Подготовка площадки": "/process/process-site-preparation.jpeg",
-  "Реализация": "/process/process-delivery.jpeg",
-  "Передача и эксплуатация": "/process/process-handover-operation.jpeg",
+  "Подготовка проекта": "/process/process-site-preparation.jpeg",
+  "Планирование работ": "/process/process-planning.jpeg",
+  "Реализация и контроль": "/process/process-delivery.jpeg",
+  "Сдача объекта и сопровождение": "/process/process-handover-operation.jpeg",
 }
 
 export function ProcessImmersiveList({

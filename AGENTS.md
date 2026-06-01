@@ -7,6 +7,14 @@
 - Build pages by composing `shadcn` components and variants.
 - If a required component is not available in `shadcn`, stop and ask for explicit approval before implementing a custom one.
 
+## Deployment Policy (Mandatory)
+
+- Do not use Vercel for this project.
+- All deployments must go only to VPS via SSH key authentication.
+- Primary SSH key path: `C:\Users\konst\.ssh\site_stroy_kuban_vps`.
+- VPS target defaults (from project env): `VPS_HOST=194.32.243.100`, `VPS_USER=root`, `VPS_APP_DIR=/var/www/site_stroy_kuban`, `VPS_APP_PORT=3000`.
+- If deployment access fails, fix SSH key usage/host settings; do not switch deployment platform unless user explicitly requests.
+
 ## Video Assembly Policy (Mandatory)
 
 - These rules are mandatory for every request like: "склей видео", "пересобери видео", "нанеси плашки/текст", "добавь водяной знак".

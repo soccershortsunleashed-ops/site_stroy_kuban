@@ -1,7 +1,7 @@
-import Image from "next/image"
+﻿import Image from "next/image"
 import Link from "next/link"
 
-import { PageReveal, ParallaxLayer } from "@/components/animation"
+import { PageReveal } from "@/components/animation"
 import { brand } from "@/data/site-content"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -24,8 +24,14 @@ export function HomeHero() {
           </PageReveal>
           <PageReveal delay={0.1}>
             <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
-              {brand.slogan}. Реализуем проекты полного цикла: от концепции и цифрового
-              информационного моделирования до передачи объекта в эксплуатацию.
+              Строительство и BIM-проектирование объектов полного цикла. Специализируемся на
+              отелях, резиденциях и общественных пространствах. Выполняем работы от разработки
+              концепции до ввода объекта в эксплуатацию.
+            </p>
+          </PageReveal>
+          <PageReveal delay={0.12}>
+            <p className="max-w-2xl text-sm text-muted-foreground">
+              Генподряд, реконструкция и инженерные системы в Краснодаре, Сочи и Сириусе.
             </p>
           </PageReveal>
           <PageReveal delay={0.16}>
@@ -40,15 +46,13 @@ export function HomeHero() {
           </PageReveal>
         </div>
         <div className="relative h-[260px] overflow-hidden rounded-xl border border-border/50 md:h-[320px]">
-          <ParallaxLayer className="h-full w-full" contentClassName="h-full w-full" strength={0.45}>
-            <Image
-              src="/brand-logo.jpg"
-              alt="Логотип СтройТрест-23"
-              fill
-              className="object-cover"
-              priority
-            />
-          </ParallaxLayer>
+          <Image
+            src="/brand-logo-transparent.png"
+            alt="Логотип СтройТрест-23"
+            fill
+            className="object-contain object-center p-6 md:p-8"
+            priority
+          />
         </div>
       </CardContent>
     </Card>
